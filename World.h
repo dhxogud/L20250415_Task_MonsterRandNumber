@@ -19,6 +19,9 @@ public:
 	vector<ABoar*> Boar;
 
 public:
+	UWorld();
+	~UWorld();
+
 	void Initialize();
 	void PrintAllActor();
 	void Clear();

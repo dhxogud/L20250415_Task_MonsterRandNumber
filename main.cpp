@@ -13,7 +13,9 @@ int main()
 
 	Wolrd->PrintAllActor();
 	Wolrd->Clear();
-	Wolrd->Terminate();
 	
+	delete Wolrd;
+	Wolrd = nullptr;
+
 	return 0;
 }

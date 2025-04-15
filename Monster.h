@@ -1,5 +1,8 @@
 #pragma once
-class AMonster
+
+#include "Character.h"
+
+class AMonster : ACharacter
 {
 public:
 	void Attack();

@@ -13,25 +13,33 @@ UWorld::UWorld()
 {
 	Initialize();
 }
+UWorld::~UWorld()
+{
+	Terminate();
+}
 void UWorld::Initialize()
 {
 	srand(unsigned int(time(NULL)));
 
-	for (int i = 0; i < rand() % 10; i++)
+	for (int i = 0; i < 10; ++i)
 	{
-		Player.push_back(new APlayer());
-	}
-	for (int i = 0; i < rand() % 10; i++)
-	{
-		Slime.push_back(new ASlime());
-	}
-	for (int i = 0; i < rand() % 10; i++)
-	{
-		Goblin.push_back(new AGoblin());
-	}
-	for (int i = 0; i < rand() % 10; i++)
-	{
-		Boar.push_back(new ABoar());
+		int Type = rand() % 3;
+		if (Type == 0)
+		{
+			Slime.push_back(new ASlime());
+		}
+		if (Type == 1)
+		{
+			Goblin.push_back(new AGoblin());
+		}
+		if (Type == 2)
+		{
+			Boar.push_back(new ABoar());
+		}
+		if (Type == 3)
+		{
+			Player.push_back(new APlayer());
+		}
 	}
 }
 void UWorld::PrintAllActor()
@@ -52,12 +60,6 @@ void UWorld::Clear()
 
 void UWorld::Terminate()
 {
-	for (int i = 0; i < Player.size(); i++)
-	{
-		delete Player[i];
-		Player[i] = nullptr;
-	}
-
 	for (auto value : Player)
 	{
 		delete value;
