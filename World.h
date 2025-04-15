@@ -22,6 +22,6 @@ public:
 	void Initialize();
 	void PrintAllActor();
 	void Clear();
-	void DeleteAll();
+	void Terminate();
 };
 

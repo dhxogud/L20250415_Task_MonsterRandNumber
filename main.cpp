@@ -3,18 +3,17 @@
 #include "Slime.h"
 #include <vector>
 
-UWorld World;
 
 using namespace std;
 
+
 int main()
 {
-	World.Initialize();
-	World.PrintAllActor();
+	UWorld* Wolrd = new UWorld();
 
-	World.Clear();
-	World.PrintAllActor();
-
-	World.End();
+	Wolrd->PrintAllActor();
+	Wolrd->Clear();
+	Wolrd->Terminate();
+	
 	return 0;
 }

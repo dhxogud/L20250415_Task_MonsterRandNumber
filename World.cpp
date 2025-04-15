@@ -9,6 +9,10 @@
 #include "Boar.h"
 #include "Slime.h"
 
+UWorld::UWorld()
+{
+	Initialize();
+}
 void UWorld::Initialize()
 {
 	srand(unsigned int(time(NULL)));
@@ -37,6 +41,7 @@ void UWorld::PrintAllActor()
 	cout << Goblin.size() << endl;
 	cout << Boar.size() << endl;
 }
+
 void UWorld::Clear()
 {
 	Player.clear();
@@ -45,8 +50,14 @@ void UWorld::Clear()
 	Boar.clear();
 }
 
-void UWorld::DeleteAll()
+void UWorld::Terminate()
 {
+	for (int i = 0; i < Player.size(); i++)
+	{
+		delete Player[i];
+		Player[i] = nullptr;
+	}
+
 	for (auto value : Player)
 	{
 		delete value;
